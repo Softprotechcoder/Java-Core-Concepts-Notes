@@ -30,7 +30,12 @@ class Student implements Comparable<Student>{
 
     @Override
     public int compareTo(Student other) {
-        return this.marks - other.marks; // Ascending order based on marks
+        // return this.marks - other.marks; // Ascending order based on marks
+        if (this.marks != other.marks){
+            return this.marks - other.marks; // Ascending order based on marks
+        } else {
+            return this.name.compareTo(other.name); // If marks are equal, sort by name
+        }
     }
 
     @Override

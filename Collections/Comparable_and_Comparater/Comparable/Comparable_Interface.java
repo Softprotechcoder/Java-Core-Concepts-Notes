@@ -1,4 +1,4 @@
-package Collections.Comparable_and_Comparater;
+package Collections.Comparable_and_Comparater.Comparable;
 
 import java.util.*;
 

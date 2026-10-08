@@ -1,4 +1,4 @@
-package Newfolder;
+package InterviewQuestionPractice;
 
 import java.util.ArrayList;
 import java.util.HashSet;

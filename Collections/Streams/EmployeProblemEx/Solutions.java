@@ -171,5 +171,56 @@ public class Solutions {
          Optional <Employee> oldestEmployee = employeeList.stream()
                                                 .max(Comparator.comparing(Employee::getAge));
                         System.out.println(oldestEmployee.get());
+
+
+
+          /*
+       Q16 : Second Highest Salary
+       */
+
+       Map<String,List<Employee>> getSecondHighestSalary = employeeList.stream()
+                                                .collect(Collectors.groupingBy(Employee::getDepartment));
+                                                
+                                        
+                 for(Map.Entry<String, List<Employee>> entry:getSecondHighestSalary.entrySet()){
+
+                String key=entry.getKey();
+                List<Employee> values=entry.getValue();
+
+                Double secHigSal=values.stream()
+                // .sorted((e1,e2)->e1.getSalary()<e2.getSalary()?-1:e1.getSalary()>e2.getSalary()?1:0)
+                .sorted(Comparator.comparing(Employee::getSalary).reversed())
+                .skip(1)
+                .findFirst()
+                .get()
+                .getSalary();
+
+                System.out.println("Department : "+key+ "2nd highest salary : "+secHigSal);
+                }    
+
+                /*
+                Q17: Sort the emp based on name and id
+
+                 */
+                List<Employee> empSort = employeeList.stream()
+                                                .sorted(Comparator.comparing(Employee::getName)
+                                        .thenComparing(Employee::getId))
+                                        .toList();
+                                System.out.println("Sorted Emp List");
+                                for (Employee Sortedemp : empSort) {
+                                        System.out.println(Sortedemp);
+                                }
+                                                
+
+
+
+                        
+                                                        
+
+                                                        
+                                                        
     }
+
+
+     
 }
